@@ -1,0 +1,481 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+       <title> داکتریس - سیستم رزرو نوبت پزشک </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Premium Bootstrap 4 Landing Page Template">
+        <meta name="keywords" content="Appointment, Booking, System, Dashboard, Health">
+        <meta name="author" content="Shreethemes">
+        <meta name="email" content="support@shreethemes.in">
+        <meta name="website" content=" ">
+        <meta name="Version" content="v1.2.0">
+        <!-- favicon -->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+        <!-- Bootstrap -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+        <!-- Select2 -->
+        <link href="{% static 'css/select2.min.css' %}" rel="stylesheet">
+        <!-- Date picker -->
+        <link rel="stylesheet" href="{% static 'css/flatpickr.min.css' %}">
+        <link href="{% static 'css/jquery.timepicker.min.css' %}" rel="stylesheet" type="text/css">
+        <!-- Icons -->
+        <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/remixicon.css' %}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/twentytwenty.css' %}">
+        <!-- Iconscout -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link href="{% static 'css/unicons.iconscout.com/release/v3.0.6/css/line.css' %}" rel="stylesheet">
+        <!-- Css -->
+        <link href="{% static 'css/style-rtl.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt">
+<!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/twentytwenty.css' %}">
+    <style>
+        .image-container {
+            width: 100%; /* می‌توانید عرض را بر اساس طرح کلی خود تنظیم کنید */
+            height: 300px; /* ارتفاع ثابتی برای تمامی تصاویر تنظیم کنید */
+            overflow: hidden; /* اگر تصویر بزرگ‌تر از ظرف بود، قسمت‌های اضافی را پنهان می‌کند */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-profile {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* اندازه تصویر را تغییر می‌دهد تا تمام ظرف را پر کند بدون تغییر نسبت ابعاد */
+        }
+        .img-profiles {
+    width: 100%; /* یا اندازه ثابت مثل 150px */
+    height: 200px; /* ارتفاع ثابت برای همه تصاویر */
+    object-fit: cover; /* برش تصویر به صورتی که در کادر جا بگیرد */
+    object-position: center; /* تصویر را در مرکز قرار می‌دهد */
+}
+        .navigation-menu a {
+    color: black !important; /* This sets the font color to black */
+}
+.navigation-menu .sub-menu-item {
+    color: black !important;
+}
+.navigation-menu a,
+.navigation-menu .submenu a {
+    color: black !important; /* Ensures the color is applied to all menu items */
+}
+
+
+    </style>
+    </head>
+
+    <body>
+        <!-- Loader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Loader -->
+
+        <!-- Navbar STart -->
+        <header id="topnav" class="navigation sticky">
+    <div class="container">
+        <!-- Logo container-->
+        <div>
+            <a class="logo" href="{% url 'home' %}">
+                        <span class="logo-light-mode">
+                            <img src="{% static 'images/logo-icon.png' %}" class="l-dark" height="24" alt="">
+                            <img src="{% static 'images/logo-icon.png' %}" class="l-light" height="24" alt="">
+                        </span>
+<!--                <img src="{% static 'images/logo-light.png' %}" height="24" class="logo-dark-mode" alt="">-->
+            </a>
+        </div>
+        <!-- End Logo container-->
+
+        <!-- Start Mobile Toggle -->
+        <div class="menu-extras">
+            <div class="menu-item">
+
+                <!-- Mobile menu toggle-->
+                <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <!-- End mobile menu toggle-->
+            </div>
+        </div>
+        <!-- End Mobile Toggle -->
+
+
+        <div id="navigation">
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu nav-left nav-light" >
+                <li class="has-submenu parent-parent-menu-item">
+                    <a href="{% url 'home' %}">خانه</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href="{% url 'home' %}" class="sub-menu-item">خانه </a></li>
+
+                    </ul>
+                </li>
+
+                <li class="has-submenu parent-parent-menu-item">
+                    <a href="{% url 'login_doctor' %}">پزشکان</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href="{% url 'login_doctor' %}" class="sub-menu-item">ورود</a></li>
+                        <li><a href="{% url 'register_doctor' %}" class="sub-menu-item">ثبت نام</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu parent-parent-menu-item">
+                    <a href="{% url 'login' %}">بیماران</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href="{% url 'login' %}" class="sub-menu-item">ورود</a></li>
+                        <li><a href="{% url 'register' %}" class="sub-menu-item">ثبت نام</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="/admin/" class="sub-menu-item" target="_blank">ادمین</a></li>
+            </ul><!--end navigation menu-->
+        </div><!--end navigation-->
+    </div><!--end container-->
+</header><!--end header-->
+        <!-- Navbar End -->
+
+        <!-- Start Hero -->
+        <section class="bg-dashboard">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-5 col-12">
+                        <div class="rounded shadow overflow-hidden sticky-bar">
+                            <div class="card border-0">
+                                <img src="{% static 'images/doctors/profile-bg.jpg' %}" class="img-fluid" alt="">
+                            </div>
+
+  <div class="text-center avatar-profile margin-nagative mt-n5 position-relative pb-4 border-bottom">
+                            {% if dr_users.profile_image %}
+                        <img src="{{ dr_users.profile_image.url }}"
+                             class="rounded-circle shadow-md avatar avatar-md-md" alt="">
+                        {% else %}
+                        <img src="{% static 'images/adamak.jpg' %}"
+                             class="rounded-circle shadow-md avatar avatar-md-md" alt="">
+                                                           {% endif %}
+                                <h5 class="mt-3 mb-1"> دکتر {{ first_name }} {{ last_name }}</h5>
+                                <p class="text-muted mb-0"> {{ proficiency }} </p>
+                            </div>
+
+                            <ul class="list-unstyled sidebar-nav mb-0">
+                                <li class="navbar-item"><a href="{% url 'doctor_dashboard' %}" class="navbar-link"><i class="ri-airplay-line align-middle navbar-icon"></i>داشبرد</a></li>
+                                <li class="navbar-item"><a href="{% url 'doctor_appointment' %}" class="navbar-link"><i class="ri-calendar-check-line align-middle navbar-icon"></i>نوبت‌دهی</a></li>
+                        <li class="navbar-item"><a href="{% url 'doctor-schedule' %}" class="navbar-link"><i class="ri-timer-line align-middle navbar-icon"></i> برنامه زمانبندی</a></li>
+<!--                                <li class="navbar-item"><a href="invoices.html" class="navbar-link"><i class="ri-pages-line align-middle navbar-icon"></i>فاکتورها</a></li>-->
+<!--                                <li class="navbar-item"><a href="{% url 'doctor_messages' %}" class="navbar-link"><i class="ri-mail-unread-line align-middle navbar-icon"></i>پیام ها</a></li>-->
+<!--                                <li class="navbar-item"><a href="doctor-profile.html" class="navbar-link"><i class="ri-user-line align-middle navbar-icon"></i>پروفایل</a></li>-->
+                                <li class="navbar-item"><a href="{% url 'doctor_profile_setting' %}" class="navbar-link"><i class="ri-user-settings-line align-middle navbar-icon"></i>تنظیمات پروفایل</a></li>
+                                <li class="navbar-item"><a href="{% url 'patient_list' %}" class="navbar-link"><i class="ri-empathize-line align-middle navbar-icon"></i>بیمارها</a></li>
+<!--                                <li class="navbar-item"><a href="patient-review.html" class="navbar-link"><i class="ri-chat-1-line align-middle navbar-icon"></i>نظرات بیمارها</a></li>-->
+                                <li class="navbar-item"><a href="{% url 'doctor_chat' %}" class="navbar-link"><i class="ri-chat-voice-line align-middle navbar-icon"></i> چت </a></li>
+<!--                                <li class="navbar-item"><a href="login.html" class="navbar-link"><i class="ri-login-circle-line align-middle navbar-icon"></i>ورود</a></li>-->
+<!--                                <li class="navbar-item"><a href="forgot-password.html" class="navbar-link"><i class="ri-device-recover-line align-middle navbar-icon"></i> فراموشی رمزعبور </a></li>-->
+                            </ul>
+                        </div>
+                    </div><!--end col-->
+
+                    <div class="col-xl-9 col-lg-8 col-md-7 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-6 col-md-4">
+                                <h5 class="mb-0">نوبت دهی</h5>
+                            </div><!--end col-->
+
+                            <div class="col-xl-3 col-lg-6 col-md-8 mt-4 mt-md-0">
+                                <div class="justify-content-md-end">
+                                    <form>
+                                        <div class="row justify-content-between align-items-center">
+                                            <div class="col-sm-12 col-md-5">
+
+                                            </div><!--end col-->
+
+                                            <div class="col-sm-12 col-md-7 mt-4 mt-sm-0">
+
+                                            </div><!--end col-->
+                                        </div><!--end row-->
+                                    </form><!--end form-->
+                                </div>
+                            </div><!--end col-->
+                        </div><!--end row-->
+
+                        <div class="row">
+                            <div class="col-12 mt-4">
+                                <div class="table mb-0 table-center">
+                                    <table class="table mb-0 table-center">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-bottom p-3" style="min-width: 50px;">#</th>
+                                                <th class="border-bottom p-3" style="min-width: 180px;">نام</th>
+                                                <th class="border-bottom p-3">سن</th>
+                                                <th class="border-bottom p-3">جنسیت</th>
+                                                <th class="border-bottom p-3">دپارتمان</th>
+                                                <th class="border-bottom p-3" style="min-width: 150px;">تاریخ</th>
+                                                <th class="border-bottom p-3">زمان</th>
+                                                <th class="border-bottom p-3" style="min-width: 220px;">پزشک</th>
+                                                <th class="border-bottom p-3">هزینه</th>
+                                                <th class="border-bottom p-3" style="min-width: 150px;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for r in reserve %}
+                                            <tr>
+                                                <th class="p-3">{{ forloop.counter }}</th>
+                                                <td class="p-3">
+                                                    <a href="#" class="text-dark">
+                                                        <div class="d-flex align-items-center">
+                                                            {% if r.user.profile_picture %}
+                                                            <img src="{{ r.user.profile_picture.url }}" class="avatar avatar-md-sm rounded-circle shadow" alt="">
+                                                            {% else %}
+                                                            <img src="{% static 'images/adamak.jpg' %}" class="avatar avatar-md-sm rounded-circle shadow" alt="">
+                                                            {% endif %}
+                                                            <span class="me-2">{{ r.user.first_name }} {{ r.user.last_name }}</span>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="p-3">{{ r.user_birth_date  }}</td>
+                                                <td class="p-3">{{ r.user.gender }}</td>
+                                                <td class="p-3"> {{r.doctor.proficiency}} </td>
+                                                <td class="p-3">{{r.date}}</td>
+                                                <td class="p-3">{{r.time}} </td>
+                                                <td class="p-3">
+                                                    <a href="#" class="text-dark">
+                                                        <div class="d-flex align-items-center">
+                                                            {% if r.doctor.profile_image %}
+                                                            <img src="{{ r.doctor.profile_image.url }}" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                                                            {% else %}
+                                                            <img src="{% static 'images/adamak.jpg' %}" class="avatar avatar-md-sm rounded-circle border shadow" alt="">
+                                                            {% endif %}
+                                                            <span class="me-2">{{r.doctor.first_name}} {{r.doctor.last_name}}</span>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                {% if r.doctor.price_doctor %}
+                                                <td class="p-3">{{ r.doctor.price_doctor }}</td>
+                                                {% else %}
+                                                <td class="p-3">-</td>
+                                                {% endif %}
+                                                <td class="text-end p-3">
+                                                    <a href="#" class="btn btn-icon btn-pills btn-soft-danger" onclick="cancelAppointment({{ r.id }})">
+                                                        <i class="uil uil-times-circle"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div><!--end row-->
+
+                        <div class="row text-center">
+                            <!-- PAGINATION START -->
+                            <div class="col-12 mt-4">
+    <div class="d-md-flex align-items-center text-center justify-content-between">
+        <span class="text-muted me-0">نمایش {{ reserve.start_index }} - {{ reserve.end_index }} از {{ reserve.paginator.count }}</span>
+        <ul class="pagination justify-content-center mb-0 mt-3 mt-sm-0">
+            {% if reserve.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ reserve.previous_page_number }}" aria-label="Previous">قبلی</a>
+                </li>
+            {% endif %}
+
+            {% for num in reserve.paginator.page_range %}
+                <li class="page-item {% if reserve.number == num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+            {% endfor %}
+
+            {% if reserve.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ reserve.next_page_number }}" aria-label="Next">بعدی</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+                            <!-- PAGINATION END -->
+                        </div><!--end row-->
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End Hero -->
+
+        <!-- Modal start -->
+        <!-- Add New Appointment Start -->
+
+
+        <!-- Cancel Appointment Start -->
+        <div class="modal fade" id="cancelappointment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body py-5">
+                        <div class="text-center">
+                            <div class="icon d-flex align-items-center justify-content-center bg-soft-danger rounded-circle mx-auto" style="height: 95px; width:95px;">
+                                <span class="mb-0"><i class="uil uil-times-circle h1"></i></span>
+                            </div>
+                            <div class="mt-4">
+                                <h4>لغو نوبت</h4>
+                                <p class="para-desc mx-auto text-muted mb-0">پزشکانی عالی، اگر برای خود یا خانواده تان به دنبال یک کمک موثر در موارد بیماری و اضطراری یا حتی مشاوره ای ساده نیاز دارید؛ همینجا باشید</p>
+                                <div class="mt-4">
+                                    <a href="#" class="btn btn-soft-danger">لغو </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cancel Appointment End -->
+        <!-- Modal end -->
+
+<footer class="bg-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-4 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="#" class="logo-footer">
+<!--                    <img src="{% static 'images/logo-light.png' %}" height="22" alt="">-->
+                </a>
+                <p class="mt-4 me-xl-5">پزشکانی عالی، اگر برای خود یا خانواده تان به دنبال یک کمک موثر در موارد بیماری و
+                    اضطراری یا حتی مشاوره ای ساده نیاز دارید؛ همینجا باشید</p>
+            </div><!--end col-->
+
+            <div class="col-xl-7 col-lg-8 col-md-12">
+                <div class="row">
+                    <div class="col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">جستجو سریع</h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li><a href="{% url 'about_us' %}" class="text-foot"><i
+                                    class="mdi mdi-chevron-left ms-1"></i>درباره ما</a></li>
+<!---->
+                            <!--                                <li><a href="doctor-team-two.html" class="text-foot"><i-->
+                            <!--                                            class="mdi mdi-chevron-left ms-1"></i>تیم</a></li>-->
+                            <!--                                <li><a href="blog-detail.html" class="text-foot"><i-->
+                            <!--                                            class="mdi mdi-chevron-left ms-1"></i>پروژه ها</a></li>-->
+                            <li><a href="{% url 'articles_list' %}" class="text-foot"><i
+                                    class="mdi mdi-chevron-left ms-1"></i>بلاگ</a></li>
+
+                        </ul>
+                    </div><!--end col-->
+
+
+
+                    <div class="col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">ارتباط با ما </h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li class="d-flex align-items-center">
+                                <i data-feather="mail" class="fea icon-sm text-foot align-middle"></i>
+                                <a href="mailto:ebrahimzademohammadhossein@gmail.com" class="text-foot me-2">ebrahimzade@gmail.com</a>
+                            </li>
+
+                            <li class="d-flex align-items-center">
+                                <i data-feather="phone" class="fea icon-sm text-foot align-middle"></i>
+                                <a href="tel:9199887402" class="text-foot me-2">9199887402</a>
+                            </li>
+
+
+                        </ul>
+
+
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+
+    <div class="container mt-5">
+        <div class="pt-4 footer-bar">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="text-sm-start text-center">
+                        <p class="mb-0">ارائه شده توسط دانشجویان دانشگاه زنجان
+                        </p></div>
+                </div><!--end col-->
+
+
+            </div><!--end row-->
+        </div>
+    </div><!--end container-->
+</footer><!--end footer-->
+        <!-- End -->
+
+        <!-- Back to top -->
+        <a href="#" onclick="topFunction()" id="back-to-top" class="btn btn-icon btn-pills btn-primary back-to-top"><i data-feather="arrow-up" class="icons"></i></a>
+        <!-- Back to top -->
+
+
+        <!-- Offcanvas End -->
+
+        <!-- javascript -->
+<script type="text/javascript">
+    function cancelAppointment(reserveId) {
+        if (confirm('آیا مطمئن هستید که می‌خواهید این رزرو را لغو کنید؟')) {
+            $.ajax({
+                url: '/doctor/cancel-appointment/' + reserveId + '/',
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'  // اضافه کردن csrf_token
+                },
+                success: function (response) {
+                    if (response.status === 'success') {
+                        alert(response.message);
+                        // حذف ردیف رزرو از جدول بدون رفرش صفحه
+                        $('#reserve-row-' + reserveId).remove();
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert('خطا در حذف رزرو');
+                }
+            });
+        }
+    }
+</script>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <!-- Select2 -->
+        <script src="{% static 'js/select2.min.js' %}"></script>
+        <script src="{% static 'js/select2.init.js' %}"></script>
+        <!-- Datepicker -->
+        <script src="{% static 'js/flatpickr.min.js' %}"></script>
+        <script src="{% static 'js/jdate.min.js' %}"></script>
+        <script src="{% static 'js/plugins/rangePlugin.js' %}"></script>
+        <script src="{% static 'js/fa.js' %}"></script>
+        <script src="{% static 'js/flatpickr.init.js' %}"></script>
+        <!-- Datepicker -->
+        <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+        <script src="{% static 'js/timepicker.init.js' %}"></script>
+        <!-- Icons -->
+        <script src="{% static 'js/feather.min.js' %}"></script>
+        <!-- Main Js -->
+        <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/jquery.twentytwenty.js' %}"></script>
+
+    </body>
+
+</html>

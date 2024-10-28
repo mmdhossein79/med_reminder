@@ -1,0 +1,428 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+       <title> سرویس ها </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Premium Bootstrap 4 Landing Page Template">
+        <meta name="keywords" content="Appointment, Booking, System, Dashboard, Health">
+        <meta name="author" content="Shreethemes">
+        <meta name="email" content="support@shreethemes.in">
+        <meta name="website" content=" ">
+        <meta name="Version" content="v1.2.0">
+        <!-- favicon -->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+        <!-- Bootstrap -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+        <!-- Icons -->
+        <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/remixicon.css' %}" rel="stylesheet" type="text/css">
+<!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/twentytwenty.css' %}">
+
+        <!-- SLIDER -->
+        <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
+        <!-- Iconscout -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css' %}">
+        <link href="{% static 'css/unicons.iconscout.com/release/v3.0.6/css/line.css' %}" rel="stylesheet">
+        <!-- Css -->
+        <link href="{% static 'css/style-rtl.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt">
+<style>
+            .image-container {
+            width: 100%; /* می‌توانید عرض را بر اساس طرح کلی خود تنظیم کنید */
+            height: 300px; /* ارتفاع ثابتی برای تمامی تصاویر تنظیم کنید */
+            overflow: hidden; /* اگر تصویر بزرگ‌تر از ظرف بود، قسمت‌های اضافی را پنهان می‌کند */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-profile {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* اندازه تصویر را تغییر می‌دهد تا تمام ظرف را پر کند بدون تغییر نسبت ابعاد */
+        }
+        .navigation-menu a {
+    color: black !important; /* This sets the font color to black */
+}
+.navigation-menu .sub-menu-item {
+    color: black !important;
+}
+.navigation-menu a,
+.navigation-menu .submenu a {
+    color: black !important; /* Ensures the color is applied to all menu items */
+}
+</style>
+    </head>
+
+    <body>
+        <!-- Loader -->
+<!--        <div id="preloader">-->
+<!--            <div id="status">-->
+<!--                <div class="spinner">-->
+<!--                    <div class="double-bounce1"></div>-->
+<!--                    <div class="double-bounce2"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <!-- Loader -->
+
+        <!-- Navbar STart -->
+        <header id="topnav" class="defaultscroll sticky">
+            <div class="container">
+                <!-- Logo container-->
+                <div>
+            <a class="logo" href="{% url 'home' %}">
+                        <span class="logo-light-mode">
+                            <img src="{% static 'images/logo-icon.png' %}" class="l-dark" height="24" alt="">
+                            <img src="{% static 'images/logo-icon.png' %}" class="l-light" height="24" alt="">
+                        </span>
+<!--                <img src="{% static 'images/logo-light.png' %}" height="24" class="logo-dark-mode" alt="">-->
+            </a>
+        </div>
+                <!-- End Logo container-->
+
+                <!-- Start Mobile Toggle -->
+                <div class="menu-extras">
+                    <div class="menu-item">
+                        <!-- Mobile menu toggle-->
+                        <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </div>
+                </div>
+                <!-- End Mobile Toggle -->
+
+                <!-- Start Dropdown -->
+<!--                <ul class="dropdowns list-inline mb-0">-->
+<!--                    <li class="list-inline-item mb-0">-->
+<!--                        <a href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">-->
+<!--                            <div class="btn btn-icon btn-pills btn-primary"><i data-feather="settings" class="fea icon-sm"></i></div>-->
+<!--                        </a>-->
+<!--                    </li>-->
+
+<!--                    <li class="list-inline-item mb-0 me-1">-->
+<!--                        <a href="javascript:void(0)" class="btn btn-icon btn-pills btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">-->
+<!--                            <i class="uil uil-search"></i>-->
+<!--                        </a>-->
+<!--                    </li>-->
+
+
+<!--                </ul>-->
+                <!-- Start Dropdown -->
+
+                        <div id="navigation">
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu nav-left nav-light">
+                <li class="has-submenu parent-menu-item">
+                    <a href="javascript:void(0)">خانه</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href="{% url 'home' %}" class="sub-menu-item">خانه </a></li>
+
+                    </ul>
+                </li>
+
+                <li class="has-submenu parent-parent-menu-item">
+                    <a href="javascript:void(0)">پزشکان</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href="{% url 'login_doctor' %}" class="sub-menu-item">ورود</a></li>
+                        <li><a href="{% url 'register_doctor' %}" class="sub-menu-item">ثبت نام</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu parent-menu-item">
+                    <a href="javascript:void(0)">بیماران</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href="{% url 'login' %}" class="sub-menu-item">ورود</a></li>
+                        <li><a href="{% url 'register' %}" class="sub-menu-item">ثبت نام</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="admin/" class="sub-menu-item" target="_blank">ادمین</a></li>
+            </ul><!--end navigation menu-->
+        </div>
+            </div><!--end container-->
+        </header><!--end header-->
+        <!-- Navbar End -->
+
+
+        <div class="position-relative">
+            <div class="shape overflow-hidden text-white">
+                <svg viewbox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </div>
+        <!-- End Hero -->
+
+        <!-- Start -->
+        <section class="bg-half-170 d-table w-100" style="background: url('static/images/bg/department.jpg') center center;">
+            <div class="bg-overlay bg-overlay-dark"></div>
+            <div class="container">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-12">
+                        <div class="section-title text-center">
+                            <h3 class="sub-title mb-4 text-white title-dark">دپارتمان ها</h3>
+                            <p class="para-desc mx-auto text-white-50">پزشکانی عالی، اگر برای خود یا خانواده تان به دنبال یک کمک موثر در موارد بیماری و اضطراری یا حتی مشاوره ای ساده نیاز دارید؛ همینجا باشید</p>
+
+                            <nav aria-label="breadcrumb" class="d-inline-block mt-3">
+                                <ul class="breadcrumb bg-light rounded mb-0 py-1 px-2">
+                                    <li class="breadcrumb-item"><a href="{% url 'home' %}">خانه</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">دپارتمان ها</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+
+            <div class="container mt-100 mt-60">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="section-title mb-4 pb-2 text-center">
+                            <span class="badge badge-pill badge-soft-primary mb-3">دپارتمان ها</span>
+                            <h4 class="title mb-4"> خدمات پزشکی ما </h4>
+                            <p class="text-muted mx-auto para-desc mb-0">پزشکانی عالی، اگر برای خود یا خانواده تان به دنبال یک کمک موثر در موارد بیماری و اضطراری یا حتی مشاوره ای ساده نیاز دارید؛ همینجا باشید</p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="row">
+
+                    {% for work in works %}
+                    <div class="col-xl-3 col-md-4 col-12 mt-4 pt-2">
+                        <div class="card features feature-primary border-0">
+                            <div class="icon text-center rounded-md">
+                                <i class="ri-psychotherapy-fill h3 mb-0"></i>
+                            </div>
+                            <div class="card-body p-0 mt-3">
+                                <a href="#" class="title text-dark h5"> {{ work.title }} </a>
+                                <p class="text-muted mt-3">{{work.description }} </p>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                    {% endfor %}
+
+                </div><!--end row-->
+
+<section class="section" >
+            <div class="container">
+                <div class="row">
+
+                    {% for service in services %}
+
+            <div class="col-xl-3 col-md-4 col-12 mt-5">
+                <div class="card features feature-primary border-0">
+                    <div class="icon text-center rounded-md">
+                        <img src="{{ service.image.url }}" class="img-fluid" width="90" height="90" alt="">
+                    </div>
+                    <div class="card-body p-0 mt-3">
+                        <a href="#" class="title text-dark h5"> {{ service.title }} </a>
+                        <p class="text-muted mt-3"> {{service.description }} </p>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End -->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End -->
+
+<footer class="bg-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-4 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="#" class="logo-footer">
+<!--                    <img src="{% static 'images/logo-light.png' %}" height="22" alt="">-->
+                </a>
+                <p class="mt-4 me-xl-5">پزشکانی عالی، اگر برای خود یا خانواده تان به دنبال یک کمک موثر در موارد بیماری و
+                    اضطراری یا حتی مشاوره ای ساده نیاز دارید؛ همینجا باشید</p>
+            </div><!--end col-->
+
+            <div class="col-xl-7 col-lg-8 col-md-12">
+                <div class="row">
+                    <div class="col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">جستجو سریع</h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li><a href="{% url 'about_us' %}" class="text-foot"><i
+                                    class="mdi mdi-chevron-left ms-1"></i>درباره ما</a></li>
+<!---->
+                            <!--                                <li><a href="doctor-team-two.html" class="text-foot"><i-->
+                            <!--                                            class="mdi mdi-chevron-left ms-1"></i>تیم</a></li>-->
+                            <!--                                <li><a href="blog-detail.html" class="text-foot"><i-->
+                            <!--                                            class="mdi mdi-chevron-left ms-1"></i>پروژه ها</a></li>-->
+                            <li><a href="{% url 'articles_list' %}" class="text-foot"><i
+                                    class="mdi mdi-chevron-left ms-1"></i>بلاگ</a></li>
+
+                        </ul>
+                    </div><!--end col-->
+
+
+
+                    <div class="col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">ارتباط با ما </h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li class="d-flex align-items-center">
+                                <i data-feather="mail" class="fea icon-sm text-foot align-middle"></i>
+                                <a href="mailto:ebrahimzademohammadhossein@gmail.com" class="text-foot me-2">ebrahimzade@gmail.com</a>
+                            </li>
+
+                            <li class="d-flex align-items-center">
+                                <i data-feather="phone" class="fea icon-sm text-foot align-middle"></i>
+                                <a href="tel:9199887402" class="text-foot me-2">9199887402</a>
+                            </li>
+
+
+                        </ul>
+
+
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+
+    <div class="container mt-5">
+        <div class="pt-4 footer-bar">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="text-sm-start text-center">
+                        <p class="mb-0">ارائه شده توسط دانشجویان دانشگاه زنجان
+                        </p></div>
+                </div><!--end col-->
+
+
+            </div><!--end row-->
+        </div>
+    </div><!--end container-->
+</footer><!--end footer-->
+        <!-- End -->
+
+        <!-- Back to top -->
+        <a href="#" onclick="topFunction()" id="back-to-top" class="btn btn-icon btn-pills btn-primary back-to-top"><i data-feather="arrow-up" class="icons"></i></a>
+        <!-- Back to top -->
+
+        <!-- Offcanvas Start -->
+<!--        <div class="offcanvas bg-white offcanvas-top" tabindex="-1" id="offcanvasTop">-->
+<!--            <div class="offcanvas-body d-flex align-items-center align-items-center">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <div class="text-center">-->
+<!--                                <h4>جستجو کنید...</h4>-->
+<!--                                <div class="subcribe-form mt-4">-->
+<!--                                    <form>-->
+<!--                                        <div class="mb-0">-->
+<!--                                            <input type="text" id="help" name="name" class="border bg-white rounded-pill" required="" placeholder="جستجو">-->
+<!--                                            <button type="submit" class="btn btn-pills btn-primary">جستجو</button>-->
+<!--                                        </div>-->
+<!--                                    </form>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                    </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--                </div>&lt;!&ndash;end container&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Offcanvas End &ndash;&gt;-->
+
+<!--        &lt;!&ndash; Offcanvas Start &ndash;&gt;-->
+<!--        <div class="offcanvas offcanvas-end bg-white shadow" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">-->
+<!--            <div class="offcanvas-header p-4 border-bottom">-->
+<!--                <h5 id="offcanvasRightLabel" class="mb-0">-->
+<!--                    <img src="{% static 'images/logo-dark.png' %}" height="24" class="light-version" alt="">-->
+<!--                    <img src="{% static 'images/logo-light.png' %}" height="24" class="dark-version" alt="">-->
+<!--                </h5>-->
+<!--                <button type="button" class="btn-close d-flex align-items-center text-dark" data-bs-dismiss="offcanvas" aria-label="Close"><i class="uil uil-times fs-4"></i></button>-->
+<!--            </div>-->
+<!--            <div class="offcanvas-body p-4 px-md-5">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-12">-->
+<!--                        &lt;!&ndash; Style switcher &ndash;&gt;-->
+<!--                        <div id="style-switcher">-->
+<!--                            <div>-->
+<!--                                <ul class="text-center list-unstyled mb-0">-->
+<!--                                    <li class="d-grid"><a href="javascript:void(0)" class="rtl-version t-rtl-light" onclick="setTheme('style-rtl')"><img src="{% static 'images/layouts/landing-light-rtl.png' %}" class="img-fluid rounded-md shadow-md d-block" alt=""><span class="text-muted mt-2 d-block">راست چین</span></a></li>-->
+<!--                                    <li class="d-grid"><a href="javascript:void(0)" class="dark-rtl-version t-rtl-dark" onclick="setTheme('style-dark-rtl')"><img src="{% static 'images/layouts/landing-dark-rtl.png' %}" class="img-fluid rounded-md shadow-md d-block" alt=""><span class="text-muted mt-2 d-block">راست چین</span></a></li>-->
+<!--                                    <li class="d-grid"><a href="javascript:void(0)" class="dark-version t-dark mt-4" onclick="setTheme('style-dark-rtl')"><img src="{% static 'images/layouts/landing-dark-rtl.png' %}" class="img-fluid rounded-md shadow-md d-block" alt=""><span class="text-muted mt-2 d-block">حالت تاریک</span></a></li>-->
+<!--                                    <li class="d-grid"><a href="javascript:void(0)" class="light-version t-light mt-4" onclick="setTheme('style-rtl')"><img src="{% static 'images/layouts/landing-light-rtl.png' %}" class="img-fluid rounded-md shadow-md d-block" alt=""><span class="text-muted mt-2 d-block">حالت روشن</span></a></li>-->
+<!--                                    <li class="d-grid"><a href="/admin/" target="_blank" class="mt-4"><img src="{% static 'images/layouts/light-dash-rtl.png' %}" class="img-fluid rounded-md shadow-md d-block" alt=""><span class="text-muted mt-2 d-block">دشبرد ادمین</span></a></li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; end Style switcher &ndash;&gt;-->
+<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+<!--                </div>&lt;!&ndash;end row&ndash;&gt;-->
+<!--            </div>-->
+
+<!--            <div class="offcanvas-footer p-4 border-top text-center">-->
+<!--                <ul class="list-unstyled social-icon mb-0">-->
+<!--                    <li class="list-inline-item mb-0"><a href="https://www.rtl-theme.com/doctris-html-template" target="_blank" class="rounded"><i class="uil uil-shopping-cart align-middle" title="خرید"></i></a></li>-->
+<!--                    <li class="list-inline-item mb-0"><a href=" " target="_blank" class="rounded"><i class="uil uil-dribbble align-middle" title="dribbble"></i></a></li>-->
+<!--                    <li class="list-inline-item mb-0"><a href="https://www.rtl-theme.com/author/afaridteam/" target="_blank" class="rounded"><i class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>-->
+<!--                    <li class="list-inline-item mb-0"><a href="https://www.rtl-theme.com/author/afaridteam/" target="_blank" class="rounded"><i class="uil uil-instagram align-middle" title="instagram"></i></a></li>-->
+<!--                    <li class="list-inline-item mb-0"><a href="https://www.rtl-theme.com/author/afaridteam/" target="_blank" class="rounded"><i class="uil uil-twitter align-middle" title="twitter"></i></a></li>-->
+<!--                    <li class="list-inline-item mb-0"><a href="https://www.rtl-theme.com/author/afaridteam/" class="rounded"><i class="uil uil-envelope align-middle" title="email"></i></a></li>-->
+<!--                    <li class="list-inline-item mb-0"><a href=" " target="_blank" class="rounded"><i class="uil uil-globe align-middle" title="website"></i></a></li>-->
+<!--                </ul>&lt;!&ndash;end icon&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Offcanvas End &ndash;&gt;-->
+
+<!--        &lt;!&ndash; MOdal Start &ndash;&gt;-->
+<!--        <div class="modal fade" id="watchvideomodal" tabindex="-1" aria-hidden="true">-->
+<!--            <div class="modal-dialog modal-dialog-centered modal-lg">-->
+<!--                <div class="modal-content video-modal rounded overflow-hidden">-->
+<!--                    &lt;!&ndash; <video class="w-100" controls autoplay muted loop>-->
+<!--                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">-->
+<!--                    </video> &ndash;&gt;-->
+<!--                    &lt;!&ndash;Browser does not support <video> tag &ndash;&gt;-->
+<!--                    &lt;!&ndash;If you want to use your own video please set your files path&ndash;&gt;-->
+
+<!--                    &lt;!&ndash; <div class="ratio ratio-16x9">-->
+<!--                            <iframe src="https://www.youtube.com/embed/jNTZpfXYJa4?rel=0" title="YouTube video" allowfullscreen></iframe>-->
+<!--                        </div> &ndash;&gt;-->
+<!--                    &lt;!&ndash;If you want to use the youtube link please try the above code&ndash;&gt;-->
+
+<!--                    <div class="ratio ratio-16x9">-->
+<!--                        <iframe src="https://player.vimeo.com/video/99025203" title="Vimeo video" allowfullscreen=""></iframe>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;If you want to use the Vimeo link please try the above code&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <!-- MOdal End -->
+
+        <!-- javascript -->
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <!-- SLIDER -->
+        <script src="{% static 'js/tiny-slider.js' %}"></script>
+        <script src="{% static 'js/tiny-slider-init.js' %}"></script>
+        <!-- Icons -->
+        <script src="{% static 'js/feather.min.js' %}"></script>
+        <!-- Main Js -->
+        <script src="{% static 'js/app.js' %}"></script>
+    </body>
+
+</html>
+
+
+

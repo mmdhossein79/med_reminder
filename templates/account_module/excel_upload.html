@@ -1,0 +1,10 @@
+{% extends 'admin/change_list.html' %}
+
+{% block object-tools %}
+  {{ block.super }}
+  {% if custom_button %}
+    <li>
+      <a class="button" href="{% url 'admin:upload_excel' %}">آپلود فایل اکسل</a>
+    </li>
+  {% endif %}
+{% endblock %}

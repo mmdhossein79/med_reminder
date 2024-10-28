@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> اطلاعات بیشتر </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Bootstrap 4 Landing Page Template">
+    <meta name="keywords" content="Appointment, Booking, System, Dashboard, Health">
+    <meta name="author" content="Shreethemes">
+    <meta name="email" content="support@shreethemes.in">
+    <meta name="website" content=" ">
+    <meta name="Version" content="v1.2.0">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- Icons -->
+    <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/remixicon.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Iconscout -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="{% static 'css/unicons.iconscout.com/release/v3.0.6/css/line.css' %}" rel="stylesheet">
+    <!-- Css -->
+    <link href="{% static 'css/style-rtl.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt">
+<!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/twentytwenty.css' %}">
+
+</head>
+
+<body>
+<!-- Loader -->
+
+<div class="back-to-home rounded d-none d-sm-block">
+    <a href="{% url 'home' %}" class="btn btn-icon btn-primary"><i data-feather="home" class="icons"></i></a>
+</div>
+
+<!-- Hero Start -->
+<section class="bg-half-150 d-table w-100 bg-light"
+         style="background: url('static/images/bg/bg-lines-one.png') center;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-8">
+                <img src="{% static 'images/logo-dark.png' %}" height="24" class="mx-auto d-block" alt="">
+                <div class="card login-page bg-white shadow mt-4 rounded border-0">
+                    <div class="card-body">
+                        <h4 class="text-center">ثبت‌نام</h4>
+                        <!--                        <form method="post" enctype="multipart/form-data">-->
+                        <!--                            {% csrf_token %}-->
+                        <!--                            {{ more_info.medical_degree_picture.label_tag }}-->
+                        <!--                            {{ more_info.medical_degree_picture }}-->
+                        <!--                            <button type="submit" class="btn btn-primary">بارگذاری</button>-->
+                        <!--                        </form>-->
+
+                        <form class="mt-4" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ more_info.medical_degree_picture.label_tag }}
+                                        {{ more_info.medical_degree_picture }}
+                                        {% for error in more_info.medical_degree_picture.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label"> نام<span class="text-danger">*</span></label>
+                                        {{ more_info.first_name }}
+                                        {% for error in more_info.first_name.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                        {% endfor %}
+                                                                            </div>
+                                </div>
+                                    <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">نام خانوادگی <span
+                                                class="text-danger">*</span></label>
+                                        {{ more_info.last_name }}
+                                        {% for error in more_info.last_name.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label"> تخصص<span class="text-danger">*</span></label>
+                                        {{ more_info.proficiency }}
+                                        {% for error in more_info.proficiency.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">رمزعبور<span class="text-danger">*</span></label>
+                                        {{ more_info.password }}
+                                        {% for error in more_info.password.errors %}
+                                        <div class="text-danger">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="d-grid">
+                                        <button class="btn btn-primary">ثبت نام</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!---->
+            </div> <!--end col-->
+        </div><!--end row-->
+    </div> <!--end container-->
+</section><!--end section-->
+<!-- Hero End -->
+
+<!-- javascript -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- Icons -->
+<script src="{% static 'js/feather.min.js' %}"></script>
+<!-- Main Js -->
+<script src="{% static 'js/app.js' %}"></script>
+
+</body>
+
+</html>

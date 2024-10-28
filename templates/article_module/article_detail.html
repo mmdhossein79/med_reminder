@@ -1,0 +1,615 @@
+{% load static %}
+{% load jformat %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> داکتریس - سیستم رزرو نوبت پزشک </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Bootstrap 4 Landing Page Template">
+    <meta name="keywords" content="Appointment, Booking, System, Dashboard, Health">
+    <meta name="author" content="Shreethemes">
+    <meta name="email" content="support@shreethemes.in">
+    <meta name="website" content=" ">
+    <meta name="Version" content="v1.2.0">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- Icons -->
+    <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/remixicon.css' %}" rel="stylesheet" type="text/css">
+<!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/twentytwenty.css' %}">
+
+    <!-- SLIDER -->
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
+    <!-- Iconscout -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="{% static 'css/unicons.iconscout.com/release/v3.0.6/css/line.css' %}" rel="stylesheet">
+    <!-- Css -->
+    <link href="{% static 'css/style-rtl.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt">
+    <style>
+        .image-container {
+            width: 100%; /* می‌توانید عرض را بر اساس طرح کلی خود تنظیم کنید */
+            height: 300px; /* ارتفاع ثابتی برای تمامی تصاویر تنظیم کنید */
+            overflow: hidden; /* اگر تصویر بزرگ‌تر از ظرف بود، قسمت‌های اضافی را پنهان می‌کند */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-profile {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* اندازه تصویر را تغییر می‌دهد تا تمام ظرف را پر کند بدون تغییر نسبت ابعاد */
+        }
+        .img-profiles {
+    width: 100%; /* یا اندازه ثابت مثل 150px */
+    height: 200px; /* ارتفاع ثابت برای همه تصاویر */
+    object-fit: cover; /* برش تصویر به صورتی که در کادر جا بگیرد */
+    object-position: center; /* تصویر را در مرکز قرار می‌دهد */
+}
+        .navigation-menu a {
+    color: black !important; /* This sets the font color to black */
+}
+.navigation-menu .sub-menu-item {
+    color: black !important;
+}
+.navigation-menu a,
+.navigation-menu .submenu a {
+    color: black !important; /* Ensures the color is applied to all menu items */
+}
+    </style>
+</head>
+
+<body>
+<!-- Loader -->
+<!--        <div id="preloader">-->
+<!--            <div id="status">-->
+<!--                <div class="spinner">-->
+<!--                    <div class="double-bounce1"></div>-->
+<!--                    <div class="double-bounce2"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!-- Loader -->
+
+<!-- Navbar STart -->
+<header id="topnav" class="navigation sticky">
+    <div class="container">
+        <!-- Logo container-->
+        <div>
+            <a class="logo" href="{% url 'home' %}">
+                        <span class="logo-light-mode">
+                            <img src="{% static 'images/logo-icon.png' %}" class="l-dark" height="24" alt="">
+                            <img src="{% static 'images/logo-icon.png' %}" class="l-light" height="24" alt="">
+                        </span>
+                <img src="{% static 'images/logo-light.png' %}" height="24" class="logo-dark-mode" alt="">
+            </a>
+        </div>
+        <!-- End Logo container-->
+
+        <!-- Start Mobile Toggle -->
+        <div class="menu-extras">
+            <div class="menu-item">
+                <!-- Mobile menu toggle-->
+                <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <!-- End mobile menu toggle-->
+            </div>
+        </div>
+        <!-- End Mobile Toggle -->
+
+
+        <div id="navigation">
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu nav-left nav-light" >
+                <li class="has-submenu parent-menu-item">
+                    <a href="javascript:void(0)">خانه</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href="{% url 'home' %}" class="sub-menu-item">خانه </a></li>
+
+                    </ul>
+                </li>
+
+                <li class="has-submenu parent-parent-menu-item">
+                    <a href="javascript:void(0)">پزشکان</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href="{% url 'login_doctor' %}" class="sub-menu-item">ورود</a></li>
+                        <li><a href="{% url 'register_doctor' %}" class="sub-menu-item">ثبت نام</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu parent-menu-item">
+                    <a href="javascript:void(0)">بیماران</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href="{% url 'login' %}" class="sub-menu-item">ورود</a></li>
+                        <li><a href="{% url 'register' %}" class="sub-menu-item">ثبت نام</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="/admin/" class="sub-menu-item" target="_blank">ادمین</a></li>
+            </ul><!--end navigation menu-->
+        </div><!--end navigation-->
+    </div><!--end container-->
+</header><!--end header-->
+<!-- Navbar End -->
+
+<!-- Start Hero -->
+<section class="bg-half-150 d-table w-100 bg-light">
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-12">
+                <div class="section-title text-center">
+                    <h3 class="sub-title mb-4"> {{ article.title }}</h3>
+                    <p class="para-desc mx-auto text-muted">{{ article.short_description }}</p>
+
+                    <ul class="list-unstyled mt-4">
+                        {% if article.author is not None %}
+
+                        <li class="list-inline-item user text-muted me-2"><i class="mdi mdi-account"></i> {{ article.author }}
+                        </li>
+                        {% endif %}
+                        <li class="list-inline-item date text-muted"><i class="mdi mdi-calendar-check"></i>{{ article.get_jalali_create_time }}     {{ article.create_date|jformat:"%Y/%m/%d" }}
+                        </li>
+                    </ul>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section-->
+<div class="position-relative">
+    <div class="shape overflow-hidden text-white">
+        <svg viewbox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!-- End Hero -->
+
+<!-- Start -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-7">
+                <img src="{{ article.image.url }}" class="img-fluid rounded shadow" alt="">
+
+                <!-- <ul class="list-unstyled mt-4">
+                    <li class="list-inline-item user text-muted me-2"><i class="mdi mdi-account"></i> کلوین کارلو</li>
+                    <li class="list-inline-item date text-muted"><i class="mdi mdi-calendar-check"></i> 1 بهمن 1400</li>
+                </ul> -->
+
+                <p class="text-muted mt-4">{{ article.text }} </p>
+
+
+                <h5 class="card-title mt-4 mb-0">نظرات : {{ comments_count }}</h5>
+
+                <ul class="media-list list-unstyled mb-0">
+                        {% for comment in comments %}
+
+                    <li class="mt-4">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <a class="pe-3" href="#">
+                                    <img src="{% static 'images/client/01.jpg' %}"
+                                         class="img-fluid avatar avatar-md-sm rounded-circle shadow" alt="img">
+                                </a>
+                                <div class="commentor-detail">
+                                    <h6 class="mb-0"><a href="javascript:void(0)" class="text-dark media-heading">{{ comment.email }}</a></h6>
+                                    <small class="text-muted">{{ comment.formatted_datetime }} </small>
+                                </div>
+                            </div>
+                            <a href="#" class="text-muted"><i class="mdi mdi-reply"></i> پاسخ </a>
+                        </div>
+                        <div class="mt-3">
+                            <p class="text-muted font-italic p-3 bg-light rounded">{{ comment.text }}</p>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+
+
+
+                </ul>
+
+                <h5 class="card-title mt-4 mb-0">نظر بدهید :</h5>
+
+                <form method="POST" action="{% url 'add_article_comment' %}" class="mt-3">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mb-3">
+                <label class="form-label"> نظر شما<span class="text-danger">*</span></label>
+                <textarea id="article_comment" placeholder="نظر شما" rows="5" name="article_comment"
+                          class="form-control" required></textarea>
+            </div>
+        </div><!--end col-->
+
+        <div class="col-lg-6">
+            <div class="mb-3">
+                <label class="form-label">نام<span class="text-danger">*</span></label>
+                <input id="name" name="name" type="text" placeholder="نام" class="form-control" required>
+            </div>
+        </div><!--end col-->
+
+        <div class="col-lg-6">
+            <div class="mb-3">
+                <label class="form-label">ایمیل شما <span class="text-danger">*</span></label>
+                <input id="email" type="email" placeholder="ایمیل" name="email" class="form-control" required>
+            </div>
+        </div><!--end col-->
+
+        <input type="hidden" name="article_id" value="{{ article.id }}">
+        <input type="hidden" name="parent_id" value="">
+
+        <div class="col-md-12">
+            <div class="send d-grid">
+                <button type="submit" class="btn btn-primary">ارسال پیام</button>
+            </div>
+        </div><!--end col-->
+    </div><!--end row-->
+</form>
+            </div><!--end col-->
+
+            <div class="col-lg-4 col-md-5 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <div class="card border-0 sidebar sticky-bar rounded shadow">
+                    <div class="card-body">
+                        <!-- SEARCH -->
+<!--                        <div class="widget mb-4 pb-2">-->
+<!--                            <h5 class="widget-title">جستجو</h5>-->
+<!--                            <div id="search2" class="widget-search mt-4 mb-0">-->
+<!--                                <form role="search" method="get" id="searchform" class="searchform">-->
+<!--                                    <div>-->
+<!--                                        <input type="text" class="border rounded" name="s" id="s"-->
+<!--                                               placeholder="جستجو کلیدواژه...">-->
+<!--                                        <input type="submit" id="searchsubmit" value="Search">-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <!-- SEARCH -->
+
+                        <!-- RECENT POST -->
+                        <div class="widget mb-4 pb-2">
+                            <h5 class="widget-title">پست های اخیر</h5>
+                            <div class="mt-4">
+                                {% for article in latest_articles %}
+                                <div class="clearfix post-recent">
+                                    <div class="post-recent-thumb float-start"><a href="jvascript:void(0)"> <img
+                                            alt="img" src="{{ article.image.url }}" class="img-fluid rounded"></a>
+                                    </div>
+                                    <div class="post-recent-content float-start"><a href="jvascript:void(0)"> {{ article.title }} </a><span class="text-muted mt-2">{{ article.create_date|jformat:"%Y/%m/%d" }}</span></div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <!-- RECENT POST -->
+
+                        <!-- TAG CLOUDS -->
+                        <div class="widget mb-4 pb-2">
+                            <h5 class="widget-title">برچسب‌ها</h5>
+                            <div class="tagcloud mt-4">
+                                {% for category in article_main_categories %}
+                                <a href="jvascript:void(0)" class="rounded">{{ category.title }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <!-- TAG CLOUDS -->
+
+                        <!-- SOCIAL -->
+<!--                        <div class="widget">-->
+<!--                            <h5 class="widget-title">ما را دنبال کنید</h5>-->
+<!--                            <ul class="list-unstyled social-icon mb-0 mt-4">-->
+<!--                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i-->
+<!--                                        data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>-->
+<!--                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i-->
+<!--                                        data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>-->
+<!--                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i-->
+<!--                                        data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>-->
+<!--                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i-->
+<!--                                        data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>-->
+<!--                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i-->
+<!--                                        data-feather="github" class="fea icon-sm fea-social"></i></a></li>-->
+<!--                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i-->
+<!--                                        data-feather="youtube" class="fea icon-sm fea-social"></i></a></li>-->
+<!--                                <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i-->
+<!--                                        data-feather="gitlab" class="fea icon-sm fea-social"></i></a></li>-->
+<!--                            </ul>&lt;!&ndash;end icon&ndash;&gt;-->
+<!--                        </div>-->
+                        <!-- SOCIAL -->
+                    </div>
+                </div>
+            </div>
+        </div><!--end row-->
+    </div><!--end container-->
+
+    <div class="container mt-100 mt-60">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h4 class="title mb-0">پست های مرتبط</h4>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+
+        <div class="row">
+            <div class="col-lg-12 mt-4 pt-2">
+
+                <div class="slider-range-three">
+                {% for article in latest_articles %}
+
+                    <div class="tiny-slide">
+                        <div class="card blog blog-primary border-0 shadow rounded overflow-hidden m-1">
+                        {% if article.image %}
+                        <img src="{{ article.image.url }} "
+                             class="img-profiles" alt="">
+                        {% else %}
+                        <img src="{% static 'images/magazine.png' %}"
+                             class="img-profiles" alt="">
+                        {% endif %}
+                            <div class="card-body p-4">
+                                <ul class="list-unstyled mb-2">
+                                    <li class="list-inline-item text-muted small me-3"><i
+                                            class="uil uil-calendar-alt text-dark h6 me-1"></i>{{ article.formatted_date }}
+                                    </li>
+                                    <li class="list-inline-item text-muted small"><i
+                                            class="uil uil-clock text-dark h6 me-1"></i>{{ article.time_read }}
+                                    </li>
+                                </ul>
+                                <a href="/blog/{{article.id}}" class="text-dark title h5">{{article.title}}</a>
+                                <div class="post-meta d-flex justify-content-between mt-3">
+
+                                    <a href="/blog/{{article.id}}" class="link"> بیشتر بخوانید <i
+                                            class="mdi mdi-chevron-left align-middle"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+<!--                    <div class="tiny-slide">-->
+<!--                        <div class="card blog blog-primary border-0 shadow rounded overflow-hidden m-1">-->
+<!--                            <img src="{% static 'images/blog/04.jpg' %}" class="img-fluid" alt="">-->
+<!--                            <div class="card-body p-4">-->
+<!--                                <ul class="list-unstyled mb-2">-->
+<!--                                    <li class="list-inline-item text-muted small me-3"><i-->
+<!--                                            class="uil uil-calendar-alt text-dark h6 me-1"></i> 20 ام اسفند 1400-->
+<!--                                    </li>-->
+<!--                                    <li class="list-inline-item text-muted small"><i-->
+<!--                                            class="uil uil-clock text-dark h6 me-1"></i> 5 دقیقه خوانش-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                                <a href="blog-detail.html" class="text-dark title h5"> مقایسه فریزرهای نیتروژن و-->
+<!--                                    مکانیکی </a>-->
+<!--                                <div class="post-meta d-flex justify-content-between mt-3">-->
+<!--                                    <ul class="list-unstyled mb-0">-->
+<!--                                        <li class="list-inline-item me-2 mb-0"><a href="#" class="text-muted like"><i-->
+<!--                                                class="mdi mdi-heart-outline me-1"></i>33</a></li>-->
+<!--                                        <li class="list-inline-item"><a href="#" class="text-muted comments"><i-->
+<!--                                                class="mdi mdi-comment-outline me-1"></i>08</a></li>-->
+<!--                                    </ul>-->
+<!--                                    <a href="blog-detail.html" class="link"> بیشتر بخوانید <i-->
+<!--                                            class="mdi mdi-chevron-left align-middle"></i></a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="tiny-slide">-->
+<!--                        <div class="card blog blog-primary border-0 shadow rounded overflow-hidden m-1">-->
+<!--                            <img src="{% static 'images/blog/05.jpg' %}" class="img-fluid" alt="">-->
+<!--                            <div class="card-body p-4">-->
+<!--                                <ul class="list-unstyled mb-2">-->
+<!--                                    <li class="list-inline-item text-muted small me-3"><i-->
+<!--                                            class="uil uil-calendar-alt text-dark h6 me-1"></i> 20 ام اسفند 1400-->
+<!--                                    </li>-->
+<!--                                    <li class="list-inline-item text-muted small"><i-->
+<!--                                            class="uil uil-clock text-dark h6 me-1"></i> 5 دقیقه خوانش-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                                <a href="blog-detail.html" class="text-dark title h5">پوشیدن لباس مناسب بسیار مهم-->
+<!--                                    است</a>-->
+<!--                                <div class="post-meta d-flex justify-content-between mt-3">-->
+<!--                                    <ul class="list-unstyled mb-0">-->
+<!--                                        <li class="list-inline-item me-2 mb-0"><a href="#" class="text-muted like"><i-->
+<!--                                                class="mdi mdi-heart-outline me-1"></i>33</a></li>-->
+<!--                                        <li class="list-inline-item"><a href="#" class="text-muted comments"><i-->
+<!--                                                class="mdi mdi-comment-outline me-1"></i>08</a></li>-->
+<!--                                    </ul>-->
+<!--                                    <a href="blog-detail.html" class="link"> بیشتر بخوانید <i-->
+<!--                                            class="mdi mdi-chevron-left align-middle"></i></a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="tiny-slide">-->
+<!--                        <div class="card blog blog-primary border-0 shadow rounded overflow-hidden m-1">-->
+<!--                            <img src="{% static 'images/blog/06.jpg' %}" class="img-fluid" alt="">-->
+<!--                            <div class="card-body p-4">-->
+<!--                                <ul class="list-unstyled mb-2">-->
+<!--                                    <li class="list-inline-item text-muted small me-3"><i-->
+<!--                                            class="uil uil-calendar-alt text-dark h6 me-1"></i> 20 ام اسفند 1400-->
+<!--                                    </li>-->
+<!--                                    <li class="list-inline-item text-muted small"><i-->
+<!--                                            class="uil uil-clock text-dark h6 me-1"></i> 5 دقیقه خوانش-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                                <a href="blog-detail.html" class="text-dark title h5">چه ژنی بیشتر ویروس می خورند</a>-->
+<!--                                <div class="post-meta d-flex justify-content-between mt-3">-->
+<!--                                    <ul class="list-unstyled mb-0">-->
+<!--                                        <li class="list-inline-item me-2 mb-0"><a href="#" class="text-muted like"><i-->
+<!--                                                class="mdi mdi-heart-outline me-1"></i>33</a></li>-->
+<!--                                        <li class="list-inline-item"><a href="#" class="text-muted comments"><i-->
+<!--                                                class="mdi mdi-comment-outline me-1"></i>08</a></li>-->
+<!--                                    </ul>-->
+<!--                                    <a href="blog-detail.html" class="link"> بیشتر بخوانید <i-->
+<!--                                            class="mdi mdi-chevron-left align-middle"></i></a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="tiny-slide">-->
+<!--                        <div class="card blog blog-primary border-0 shadow rounded overflow-hidden m-1">-->
+<!--                            <img src="{% static 'images/blog/07.jpg' %}" class="img-fluid" alt="">-->
+<!--                            <div class="card-body p-4">-->
+<!--                                <ul class="list-unstyled mb-2">-->
+<!--                                    <li class="list-inline-item text-muted small me-3"><i-->
+<!--                                            class="uil uil-calendar-alt text-dark h6 me-1"></i> 20 ام اسفند 1400-->
+<!--                                    </li>-->
+<!--                                    <li class="list-inline-item text-muted small"><i-->
+<!--                                            class="uil uil-clock text-dark h6 me-1"></i> 5 دقیقه خوانش-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                                <a href="blog-detail.html" class="text-dark title h5">تحقیق در مورد ویروس کرونا </a>-->
+<!--                                <div class="post-meta d-flex justify-content-between mt-3">-->
+<!--                                    <ul class="list-unstyled mb-0">-->
+<!--                                        <li class="list-inline-item me-2 mb-0"><a href="#" class="text-muted like"><i-->
+<!--                                                class="mdi mdi-heart-outline me-1"></i>33</a></li>-->
+<!--                                        <li class="list-inline-item"><a href="#" class="text-muted comments"><i-->
+<!--                                                class="mdi mdi-comment-outline me-1"></i>08</a></li>-->
+<!--                                    </ul>-->
+<!--                                    <a href="blog-detail.html" class="link"> بیشتر بخوانید <i-->
+<!--                                            class="mdi mdi-chevron-left align-middle"></i></a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section-->
+<!-- End -->
+
+<!-- Start -->
+<footer class="bg-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-4 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="#" class="logo-footer">
+                    <img src="{% static 'images/logo-light.png' %}" height="22" alt="">
+                </a>
+                <p class="mt-4 me-xl-5">پزشکانی عالی، اگر برای خود یا خانواده تان به دنبال یک کمک موثر در موارد بیماری و
+                    اضطراری یا حتی مشاوره ای ساده نیاز دارید؛ همینجا باشید</p>
+            </div><!--end col-->
+
+            <div class="col-xl-7 col-lg-8 col-md-12">
+                <div class="row">
+                    <div class="col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">جستجو سریع</h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li><a href="{% url 'about_us' %}" class="text-foot"><i
+                                    class="mdi mdi-chevron-left ms-1"></i>درباره ما</a></li>
+<!---->
+                            <!--                                <li><a href="doctor-team-two.html" class="text-foot"><i-->
+                            <!--                                            class="mdi mdi-chevron-left ms-1"></i>تیم</a></li>-->
+                            <!--                                <li><a href="blog-detail.html" class="text-foot"><i-->
+                            <!--                                            class="mdi mdi-chevron-left ms-1"></i>پروژه ها</a></li>-->
+                            <li><a href="{% url 'articles_list' %}" class="text-foot"><i
+                                    class="mdi mdi-chevron-left ms-1"></i>بلاگ</a></li>
+
+                        </ul>
+                    </div><!--end col-->
+
+<!--                    <div class="col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">-->
+<!--                        <h5 class="text-light title-dark footer-head">دپارتمان ها</h5>-->
+<!--                        <ul class="list-unstyled footer-list mt-4">-->
+<!--                            <li><a href="departments.html" class="text-foot"><i-->
+<!--                                    class="mdi mdi-chevron-left ms-1"></i>مراقبت از چشم</a></li>-->
+<!--                            <li><a href="departments.html" class="text-foot"><i-->
+<!--                                    class="mdi mdi-chevron-left ms-1"></i>روان درمانی</a></li>-->
+<!--                            <li><a href="departments.html" class="text-foot"><i-->
+<!--                                    class="mdi mdi-chevron-left ms-1"></i>مراقبت از دندان</a></li>-->
+<!--                            <li><a href="departments.html" class="text-foot"><i-->
+<!--                                    class="mdi mdi-chevron-left ms-1"></i> ارتوپدی </a></li>-->
+<!--                            <li><a href="departments.html" class="text-foot"><i-->
+<!--                                    class="mdi mdi-chevron-left ms-1"></i> قلب و عروق </a></li>-->
+<!--                            <li><a href="departments.html" class="text-foot"><i-->
+<!--                                    class="mdi mdi-chevron-left ms-1"></i> زنان </a></li>-->
+<!--                            <li><a href="departments.html" class="text-foot"><i-->
+<!--                                    class="mdi mdi-chevron-left ms-1"></i> مغز و اعصاب </a></li>-->
+<!--                        </ul>-->
+<!--                    </div>&lt;!&ndash;end col&ndash;&gt;-->
+
+                    <div class="col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <h5 class="text-light footer-head">ارتباط با ما </h5>
+                        <ul class="list-unstyled footer-list mt-4">
+                            <li class="d-flex align-items-center">
+                                <i data-feather="mail" class="fea icon-sm text-foot align-middle"></i>
+                                <a href="mailto:ebrahimzademohammadhossein@gmail.com" class="text-foot me-2">ebrahimzade@gmail.com</a>
+                            </li>
+
+                            <li class="d-flex align-items-center">
+                                <i data-feather="phone" class="fea icon-sm text-foot align-middle"></i>
+                                <a href="tel:9199887402" class="text-foot me-2">9199887402</a>
+                            </li>
+
+
+                        </ul>
+
+
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+
+    <div class="container mt-5">
+        <div class="pt-4 footer-bar">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <div class="text-sm-start text-center">
+                        <p class="mb-0">ارائه شده توسط دانشجویان دانشگاه زنجان
+                        </p></div>
+                </div><!--end col-->
+
+<!--                <div class="col-sm-6 mt-4 mt-sm-0">-->
+<!--                    <ul class="list-unstyled footer-list text-sm-end text-center mb-0">-->
+<!--                        <li class="list-inline-item"><a href="terms.html" class="text-foot me-2">مقررات</a></li>-->
+<!--                        <li class="list-inline-item"><a href="privacy.html" class="text-foot me-2">حریم شخصی</a></li>-->
+<!--                        <li class="list-inline-item"><a href="about-us" class="text-foot me-2">درباره ما</a></li>-->
+<!--                        <li class="list-inline-item"><a href="contact.html" class="text-foot me-2">ارتباط با ما</a></li>-->
+<!--                    </ul>-->
+<!--                </div>&lt;!&ndash;end col&ndash;&gt;-->
+            </div><!--end row-->
+        </div>
+    </div><!--end container-->
+</footer><!--end footer-->
+<!-- End -->
+
+<!-- Back to top -->
+<a href="#" onclick="topFunction()" id="back-to-top" class="btn btn-icon btn-pills btn-primary back-to-top"><i
+        data-feather="arrow-up" class="icons"></i></a>
+<!-- Back to top -->
+
+
+
+<!-- javascript -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- SLIDER -->
+<script src="{% static 'js/tiny-slider.js' %}"></script>
+<script src="{% static 'js/tiny-slider-init.js' %}"></script>
+<!-- Icons -->
+<script src="{% static 'js/feather.min.js' %}"></script>
+<!-- Main Js -->
+<script src="{% static 'js/app.js' %}"></script>
+
+</body>
+
+</html>

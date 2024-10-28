@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام شما پزشک محترم با موفقیت انجام شد</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Link your CSS file -->
+</head>
+<STYLE>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.card-body {
+    margin: 0 auto;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+
+</STYLE>
+<body>
+    <div class="card">
+        <div class="card-body text-center">
+            <h1 class="mb-4">ثبت نام شما پزشک محترم با موفقیت انجام شد</h1>
+            <p class="text-muted">تا نتیجه صحت سنجی برای ورود صبر کنید. معمولا 24 الی 48 ساعت آینده انجام خواهد شد.</p>
+            <div class="d-grid mt-4">
+                <a href="{% url 'login_doctor' %}" class="btn btn-primary">بازگشت به صفحه ورود</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
